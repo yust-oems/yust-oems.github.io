@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+/* Global Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
+}
+
+.loader::after {
+  content: '';
+  border: 8px solid #e0e0e0;
+  border-top: 8px solid #ff0042;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Content Styles */
+#content {
+  display: none;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#content h1 {
+  font-size: 2.5em;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+#content p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Backlink Button */
+.backlink-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.backlink-button {
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #ff0042, #ff606a, #ffbd44);
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  border: 1px solid transparent;
+}
+
+.backlink-button:hover {
+  background: linear-gradient(to right, #ff606a, #ffbd44, #ff0042);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.backlink-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #content h1 {
+    font-size: 2em;
+  }
+
+  #content p {
+    font-size: 1em;
+  }
+
+  .backlink-button {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .backlink-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <img src="//sstatic1.histats.com/0.gif?4705536&101" alt="" border="0" style="width:0;height:0;">
+  <div id="loader" class="loader"></div>
+  <div id="content">
+    <div class="backlink-container">
+    </div>
+    <script src="/assets/js/main.js?v=1.0"></script>
+  </div>
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      }, 500);
+    });
+  </script>
+</body>
+</html>
